@@ -49,17 +49,14 @@ export const updateAdminStatus = async(req, res, next) => {
     if(!user){
         return next(new AppError(`user not found`,400));
     }
-    user.userName = req.body.userName;
-    user.email = req.body.email;
-    if(await userModel.findOne({email:user.email,_id:{$ne:req.params.id}})){
-        return next(new AppError(`user already exists`,409));
+    if(user.role != "Admin"){
+        return next(new AppError(`user must be an admin`,409));
     }
+
     
 
     
-    user.confirmEmail = req.body.confirmEmail;
     user.status = req.body.status;
-    user.role = req.body.role;
     
     await user.save();
     

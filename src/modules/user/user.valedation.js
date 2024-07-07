@@ -9,6 +9,11 @@ export const updateUserSchema = Joi.object({
     id : Joi.string().hex().length(24),
 });
 
+export const updateAdminStatus = Joi.object({
+    status: Joi.string().valid('Active','NotActive').required(),
+    id : Joi.string().hex().length(24),
+});
+
 export const destroySchema = Joi.object({
     id: Joi.string().hex().length(24),
 });
