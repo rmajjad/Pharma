@@ -33,7 +33,7 @@ export const emailTemplete = (email,userName,token) => {
             <p>If you have any questions, feel free to contact us at <a href = 'mailto:${process.env.SENDEREMAIL}' style="text-decoration: none;"><b>Our Email</b></a>.</p>
             <p>Welcome aboard,</p>
             <p>Your friends at Our Pharmacy</p>
-            <p><a href = 'https://ai-o49a.onrender.com/auth/confirmEmail/${token}' class="button">Confirm Your Email</a></p>
+            <p><a href = 'https://pharma-1-eanl.onrender.com/auth/confirmEmail/${token}' class="button">Confirm Your Email</a></p>
 
         </div>
         <div class="footer">

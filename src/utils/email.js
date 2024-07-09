@@ -12,7 +12,7 @@ export async function sendEmail(to,subject, userName = '' , token){
     });
 
     const info =  await transporter.sendMail({
-        from: `AI PHARMACY <${process.env.SENDEREMAIL}>`, // sender address
+        from: `PHARMA <${process.env.SENDEREMAIL}>`, // sender address
         to, // list of receivers
         subject, // Subject line
         html: emailTemplete(to,userName, token), // html body
@@ -31,7 +31,7 @@ export async function sendUserCode(to,subject, code){
     });
 
     const info =  await transporter.sendMail({
-        from: `AI PHARMACY <${process.env.SENDEREMAIL}>`, // sender address
+        from: `PHARMA <${process.env.SENDEREMAIL}>`, // sender address
         to, // list of receivers
         subject, // Subject line
         html: sendCodeTemplete(to,code), // html body
