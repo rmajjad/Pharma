@@ -9,6 +9,11 @@ export const getAll = async (req, res) =>{
     return res.status(200).json({message:"success",users});
 }
 
+export const getAllAdmins = async (req, res) =>{
+    const users = await userModel.find({role:"Admin"});
+    return res.status(200).json({message:"success",users});
+}
+
 
 export const getDetails = async(req, res, next) => {
     const user = await userModel.findById(req.user._id);
@@ -74,3 +79,15 @@ export const destroy = async(req,res,next)=> {
     return res.status(200).json({message:"success",user});
 };
 
+export const destroyAdmin = async(req,res,next)=> {
+    
+    const user = await userModel.findByIdAndDelete(req.params.id);
+    if(!user){
+        return next(new AppError(`user not found`,404));
+    }
+    if(user.role != "Admin"){
+        return next(new AppError(`user must be an admin`,409));
+    }
+    
+    return res.status(200).json({message:"success",user});
+};
