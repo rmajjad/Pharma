@@ -76,7 +76,7 @@ export const updateQuantity = async (req, res) => {
         }
     }, {
         new: true,
-    }
+    } 
     );
     const updatedProduct = cart.products.find(product => product.productId.toString() === req.params.productId);
     if (updatedProduct && updatedProduct.quantity <= 0) {
