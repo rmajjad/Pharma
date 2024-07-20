@@ -12,7 +12,7 @@ export const create = async(req, res, next) => {
         //return res.status(400).json({message:"cart is empty"});
         return next(new AppError(`cart is empty`,400));
     }
-    req.body.products = cart.products;
+    req.body.products = cart.products; 
 
     let finalProductList = [];
     let subTotal = 0;
